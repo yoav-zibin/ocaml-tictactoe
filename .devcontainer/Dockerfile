@@ -1,10 +1,9 @@
-FROM ocaml/opam:latest
-
-# Install Opam packages
-RUN opam init && \
-  opam update && \
-  opam install \
-  base core_kernel \
-  ounit qcheck dune \
-  ocamlformat \
-  js_of_ocaml js_of_ocaml-ppx js_of_ocaml-lwt
+FROM ubuntu:latest
+RUN echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf.d/00-docker
+RUN echo 'APT::Install-Recommends "0";' >> /etc/apt/apt.conf.d/00-docker
+RUN DEBIAN_FRONTEND=noninteractive \
+  apt-get update \
+  && apt-get install -y python3 \
+  && rm -rf /var/lib/apt/lists/*
+RUN useradd -ms /bin/bash apprunner
+USER apprunner
