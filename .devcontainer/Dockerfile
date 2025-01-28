@@ -1,4 +1,5 @@
 FROM ubuntu:latest
+# https://octopus.com/blog/using-ubuntu-docker-image
 RUN echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf.d/00-docker
 RUN echo 'APT::Install-Recommends "0";' >> /etc/apt/apt.conf.d/00-docker
 RUN DEBIAN_FRONTEND=noninteractive \
