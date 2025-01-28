@@ -8,5 +8,5 @@ RUN DEBIAN_FRONTEND=noninteractive \
   && apt-get install -y git \
   && apt-get install -y opam \
   && rm -rf /var/lib/apt/lists/*
-RUN useradd -ms /bin/bash apprunner
-USER apprunner
+RUN useradd -ms /bin/bash opam
+USER opam
