@@ -9,7 +9,6 @@ RUN DEBIAN_FRONTEND=noninteractive \
   && apt-get install -y rsync \
   && apt-get install -y ssh \
   && apt-get install -y mercurial \
-  && apt-get install -y darcs \
   && apt-get install -y bubblewrap \
   && apt-get install -y opam=2.3.0 \
   && rm -rf /var/lib/apt/lists/*
