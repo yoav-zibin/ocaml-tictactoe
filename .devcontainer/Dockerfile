@@ -6,7 +6,13 @@ RUN DEBIAN_FRONTEND=noninteractive \
   apt-get update \
   && apt-get install -y python3 \
   && apt-get install -y git \
-  && apt-get install -y opam \
+  && apt-get install -y rsync \
+  && apt-get install -y hg \
+  && apt-get install -y darcs \
+  && apt-get install -y bubblewrap \
+  && apt-get install -y opam=2.3.0 \
   && rm -rf /var/lib/apt/lists/*
-RUN useradd -ms /bin/bash opam
-USER opam
+
+# Running as root to make dev easy.
+#RUN useradd -ms /bin/bash opam
+#USER opam
